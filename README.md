@@ -9,14 +9,13 @@
 - OS: Windows 11 (chạy lệnh trong Git Bash)
 - Git: `git --version` (đã cài)
 - Thư mục dự án: `ss4/bai3`
-- Repo GitHub: https://github.com/HoangDuong20-06/DevOps-homework-session_04-ex3
-- Remote SSH: `git@github.com:HoangDuong20-06/DevOps-homework-session_04-ex3.git`
+
 
 ## 3. Quá trình thực hiện
 
 ### Bước 1 — Sinh cặp khóa Ed25519
 ```bash
-ssh-keygen -t ed25519 -C "hoangduong2062006@gmail.com" -f ~/.ssh/id_ed25519
+ssh-keygen -t ed25519 -C "vanle9540@gmail.com"" -f ~/.ssh/id_ed25519
 ```
 - Nhấn Enter 2 lần để chấp nhận đường dẫn mặc định và bỏ qua passphrase (hoặc đặt passphrase nếu muốn).
 - Kết quả sinh ra 2 file:
@@ -33,7 +32,7 @@ eval "$(ssh-agent -s)"
 
 ssh-add ~/.ssh/id_ed25519
 ssh-add -l
-# Kết quả mong đợi: 256 SHA256:... hoangduong2062006@gmail.com (ED25519)
+# Kết quả mong đợi: 256 SHA256:... vanle9540@gmail.com" (ED25519)
 ```
 > Lỗi gặp phải: `Could not open a connection to your authentication agent.`
 > Nguyên nhân: chưa chạy `ssh-agent`. Fix bằng `eval "$(ssh-agent -s)"` trước khi `ssh-add`.
@@ -64,7 +63,7 @@ git add .
 git commit -m "init bai3"
 git branch -M main
 # (repo này đang dùng nhánh master, nếu dùng main thì giữ nguyên, nếu dùng master thì: git branch -M master)
-git remote add origin git@github.com:HoangDuong20-06/DevOps-homework-session_04-ex3.git
+git remote add origin git@github.com:LeeAnhs06/DevOps-homework-session_04-ex3.git
 git remote -v
 git push -u origin master
 # (hoặc: git push -u origin main — tùy nhánh mặc định)
@@ -72,15 +71,15 @@ git push -u origin master
 
 Kiểm tra remote (lệnh kiểm tra của bài):
 ```
-origin  git@github.com:HoangDuong20-06/DevOps-homework-session_04-ex3.git (fetch)
-origin  git@github.com:HoangDuong20-06/DevOps-homework-session_04-ex3.git (push)
+origin  git@github.com:LeeAnhs06/DevOps-homework-session_04-ex3.git (fetch)
+origin  git@github.com:LeeAnhs06/DevOps-homework-session_04-ex3.git (push)
 ```
 => Đúng dạng SSH `git@github.com:username/repository.git`, không dùng HTTPS.
 
 ## 4. Kết quả
-- [x] `ssh -T git@github.com` trả về `Hi HoangDuong20-06! You've successfully authenticated...`
+- [x] `ssh -T git@github.com` trả về `Hi LeeAnhs06! You've successfully authenticated...`
 - [x] `git remote -v` hiện URL SSH cho cả fetch và push.
-- [x] Code đã push lên: https://github.com/HoangDuong20-06/DevOps-homework-session_04-ex3
+- [x] Code đã push lên: https://github.com/LeeAnhs06/DevOps-homework-session_04-ex3
 - [x] Chỉ nộp báo cáo này, không nộp file private key `id_ed25519`.
 
 ## 5. Lưu ý bảo mật
